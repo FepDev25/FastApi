@@ -6,4 +6,3 @@ class Ogre(Enemy):
 
     def talk(self):
         print("Ogre is slamming hands all around!")
-    

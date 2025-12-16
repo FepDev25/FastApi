@@ -2,7 +2,6 @@ from Animal import *
 from Bird import *
 from Dog import *
 
-
 zoo: Animal = []
 
 dog = Animal()
@@ -16,4 +15,3 @@ zoo.append(bird)
 
 for animal in zoo:
     animal.talk()
-

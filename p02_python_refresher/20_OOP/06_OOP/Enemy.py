@@ -1,10 +1,4 @@
 class Enemy:
-
-    '''
-        - Special attacks
-        - Have them battle!
-    '''
-
     def __init__(self, type_of_enemy, health_points, attack_damage):
         self.__type_of_enemy = type_of_enemy
         self.health_points = health_points
@@ -21,6 +15,6 @@ class Enemy:
 
     def special_attack(self):
         print('Enemy has no special attack.')
-
+        
     def get_type_of_enemy(self):
         return self.__type_of_enemy

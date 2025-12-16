@@ -1,9 +1,4 @@
 class Enemy:
-
-    '''
-        Show Polymorphism
-    '''
-
     def __init__(self, type_of_enemy, health_points, attack_damage):
         self.__type_of_enemy = type_of_enemy
         self.health_points = health_points

@@ -1,15 +1,4 @@
 class Enemy:
-
-    '''
-    Goal: Show Inheritance
-    - Implement Zombie object
-    - Explain Superclass / super()
-    - Override talk function
-    - Create SpreadDisease that Parent does not have
-    - Create Ogre class
-    - Implement Smash
-    '''
-
     def __init__(self, type_of_enemy, health_points, attack_damage):
         self.__type_of_enemy = type_of_enemy
         self.health_points = health_points
