@@ -24,3 +24,10 @@
 
 - Path paramteres are request parameters that have been attached to the URL.
 - Are usually defined as a way to find information based on location.
+- ![Example of Path Parameters](img/2.png)
+
+## Query Parameters
+
+- Querey paramters are request parameters that have been attached after a ?
+- Example: 127.0.0.1:8000/books/?category=math
+- ![Example of Query Parameters](img/3.png)
