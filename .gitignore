@@ -1,3 +1,5 @@
 .venv/
 
 FastAPI-The-Complete-Course-main/
+
+__pycache__/
