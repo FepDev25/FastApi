@@ -16,7 +16,7 @@ SessionLocal = sessionmaker(autocommit = False, autoflush=False, bind=engine)
 # Es una clase de la cual heredarán todos los modelos
 Base = declarative_base()
 
-# Explicacion
+# Explicacion de cada componente:
 # engine: El conductor del camión (sabe manejar SQLite).
 # SessionLocal: La oficina de contratos (crea instancias temporales para cada petición).
 # Base: El plano maestro (sabe qué forma deben tener los datos).
