@@ -1,7 +1,5 @@
 # SQLite Prompt Cookbook
 
----
-
 ## 1. Los "Dot Commands" (Meta-comandos)
 
 En SQLite usas `.` (punto). Estos no llevan punto y coma `;` al final.
@@ -15,8 +13,6 @@ En SQLite usas `.` (punto). Estos no llevan punto y coma `;` al final.
 | `.quit` o `.exit` | Salir de la shell. | `\q` |
 | `.help` | Muestra todos los comandos disponibles. | `\?` |
 | `.system [cmd]` | Ejecuta un comando de shell (ej: `.system ls -la`). | `\!` |
-
----
 
 ## 2. Formato Visual (Human Friendly)
 
@@ -34,8 +30,6 @@ Por defecto, SQLite es feo (separado por `|` sin alineación). Hay versiones rec
 .eqp on
 
 ```
-
----
 
 ## 3. Administración y Tunning (Los `PRAGMA`)
 
@@ -58,8 +52,6 @@ PRAGMA table_info(nombre_tabla);
 PRAGMA index_list(nombre_tabla);
 
 ```
-
----
 
 ## 4. Importar y Exportar Datos (ETL Rápido)
 
@@ -95,8 +87,6 @@ Dump completo (Backup lógico):
 
 ```
 
----
-
 ## 5. Manejo de Fechas (El gran dolor de cabeza)
 
 SQLite no tiene tipo de dato DATE o DATETIME. Se guardan como TEXT (ISO8601), REAL (Julianday) o INTEGER (Unix Epoch).
@@ -115,8 +105,6 @@ WHERE fecha_registro < date('now', '-7 days');
 
 ```
 
----
-
 ## 6. JSON (Power User)
 
 SQLite tiene soporte nativo para JSON. Muy útil para guardar respuestas de APIs sin normalizar todo.
@@ -130,8 +118,6 @@ SELECT json_extract(metadata, '$.theme') FROM configs;
 SELECT metadata->>'theme' FROM configs;
 
 ```
-
----
 
 ## 7. Mantenimiento (El comando `VACUUM`)
 

@@ -22,4 +22,3 @@ CREATE TABLE todos (
   PRIMARY KEY (id),
   FOREIGN KEY (owner_id) REFERENCES users(id)
 );
-sqlite> 
