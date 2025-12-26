@@ -14,7 +14,7 @@ class Users(Base):
     is_active = Column(Boolean, default=True)
 
 class Todos(Base):
-    ___tablename__ = 'todos'
+    __tablename__ = 'todos'
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
