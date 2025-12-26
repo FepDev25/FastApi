@@ -54,7 +54,7 @@ p06_project_3_complete_restful_apis/
 Almacena la información de los usuarios registrados en el sistema.
 
 | Campo | Tipo | Descripción |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | id | Integer | Identificador único (Primary Key) |
 | email | String | Correo electrónico (único) |
 | username | String | Nombre de usuario (único) |
@@ -69,7 +69,7 @@ Almacena la información de los usuarios registrados en el sistema.
 Almacena las tareas creadas por los usuarios.
 
 | Campo | Tipo | Descripción |
-|-------|------|-------------|
+| ------- | ------ | ------------- |
 | id | Integer | Identificador único (Primary Key) |
 | title | String | Título de la tarea |
 | description | String | Descripción detallada |
