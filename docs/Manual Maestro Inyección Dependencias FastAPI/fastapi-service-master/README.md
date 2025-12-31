@@ -131,6 +131,7 @@ fastapi-service-master/
 ├── .env                       # Variables de entorno (NO versionado)
 ├── .env.example              # Template de configuración
 ├── pyproject.toml            # Dependencias (UV)
+├── pytest.ini                # Configuración de pytest
 ├── .python-version           # Versión de Python (3.12)
 │
 ├── src/
@@ -146,7 +147,14 @@ fastapi-service-master/
 │       ├── service.py        # Lógica de negocio
 │       └── router.py         # Endpoints HTTP
 │
-└── tests/                    # Tests (pytest + httpx)
+└── tests/                    # Suite completa de tests
+    ├── __init__.py
+    ├── conftest.py           # Fixtures compartidos
+    ├── test_config.py        # Tests de configuración
+    ├── test_repository.py    # Tests capa Repository
+    ├── test_service.py       # Tests capa Service (con mocks)
+    ├── test_endpoints.py     # Tests de integración (API)
+    └── README.md             # Documentación de tests
 ```
 
 ## Conceptos Importantes
@@ -296,13 +304,68 @@ curl -X DELETE "http://localhost:8000/tickets/1"
 
 ## Testing
 
+### Suite Completa de Tests
+
+El proyecto incluye **35 tests** con **95% de cobertura de código**:
+
 ```bash
-# Ejecutar tests
+# Ejecutar todos los tests
 uv run pytest
 
-# Con coverage
+# Ejecutar con verbose
+uv run pytest -v
+
+# Ejecutar con coverage
+uv run pytest --cov=src --cov-report=term-missing
+
+# Ejecutar con reporte HTML
 uv run pytest --cov=src --cov-report=html
+# Abrir: htmlcov/index.html
 ```
+
+### Tipos de Tests Incluidos
+
+#### 1. **Tests Unitarios**
+
+- `test_config.py` - Configuración y settings
+- `test_repository.py` - Operaciones CRUD de la DB
+- `test_service.py` - Lógica de negocio (con mocks)
+
+#### 2. **Tests de Integración**
+
+- `test_endpoints.py` - Flujo completo de la API
+
+### Cobertura de Tests
+
+Los tests cubren:
+
+- CRUD completo de tickets
+- Validación de datos (Pydantic)
+- Lógica de negocio (prioridad automática en tickets CRITICAL/URGENTE)
+- Manejo de errores (404, validación 422)
+- Paginación de resultados
+- Inyección de dependencias
+- Override de dependencias en tests
+
+### Ejecutar Tests Específicos
+
+```bash
+# Un archivo específico
+uv run pytest tests/test_endpoints.py
+
+# Un test específico
+uv run pytest tests/test_endpoints.py::TestTicketEndpoints::test_create_ticket
+
+# Tests con marker asyncio
+uv run pytest -m asyncio
+```
+
+### Base de Datos de Pruebas
+
+- Usa **SQLite in-memory** para tests
+- Aislamiento total entre tests
+- Override automático de dependencias
+- No afecta la base de datos de producción
 
 ## Tecnologías Utilizadas
 
@@ -311,7 +374,9 @@ uv run pytest --cov=src --cov-report=html
 - **AsyncPG** - Driver asíncrono para PostgreSQL
 - **Pydantic Settings** - Gestión de configuración
 - **UV** - Gestor de paquetes ultra-rápido
-- **Pytest + Httpx** - Testing
+- **Pytest + Pytest-Asyncio** - Testing framework
+- **Httpx** - Cliente HTTP asíncrono para tests
+- **SQLite (aiosqlite)** - Base de datos para tests
 
 ## Recursos de Aprendizaje
 
@@ -344,11 +409,10 @@ uv run pytest --cov=src --cov-report=html
 Para seguir aprendiendo, intenta:
 
 1. Agregar autenticación con JWT
-2. Implementar tests unitarios para cada capa
-3. Agregar paginación avanzada
-4. Implementar filtros y búsqueda
-5. Agregar migraciones con Alembic
-6. Dockerizar la aplicación
+2. Agregar paginación avanzada
+3. Implementar filtros y búsqueda
+4. Agregar migraciones con Alembic
+5. Dockerizar la aplicación
 
 ## Licencia
 
