@@ -1,9 +1,49 @@
+# Entornos virtuales de Python
 .venv/
+venv/
+env/
 
+# Curso de terceros (no versionado)
 FastAPI-The-Complete-Course-main/
 
+# Archivos compilados de Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
 
+# Testing
 .pytest_cache/
+.coverage
+htmlcov/
+.tox/
 
+# Bases de datos locales
 *.db
+*.sqlite
+*.sqlite3
+
+# UV - Gestor de paquetes
+# uv.lock 
+#.python-version
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Distribución / empaquetado
+dist/
+build/
+*.egg-info/
