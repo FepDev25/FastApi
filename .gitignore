@@ -47,6 +47,3 @@ htmlcov/
 dist/
 build/
 *.egg-info/
-
-p09_project_5_full_stack_application/static/css/
-p09_project_5_full_stack_application/static/js/
