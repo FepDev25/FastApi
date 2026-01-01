@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-SQLALCHEMY_DATABASE_URL = 'sqlite:///./data/mi_base.db'
+SQLALCHEMY_DATABASE_URL = 'sqlite:///./mi_base.db'
 
 # El motor
 # check_same_thread=False es OBLIGATORIO en SQLite con FastAPI
